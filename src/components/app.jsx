@@ -20,7 +20,7 @@ class App extends Component {
     // apicall
     const api_key = "nbZ987awZlAD6T6AMZAi1cohEZ32R17e"
     // giphy('nbZ987awZlAD6T6AMZAi1cohEZ32R17e').
-    let url = `https://api.giphy.com/v1/gifs/search?api_key=${api_key}&limit=2&q=${query}`
+    let url = `https://api.giphy.com/v1/gifs/search?api_key=${api_key}&limit=5&q=${query}`
     console.log(url)
     fetch(url)
       .then(response => response.json())
