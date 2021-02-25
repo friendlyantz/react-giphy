@@ -21,7 +21,7 @@ class App extends Component {
     giphy('nbZ987awZlAD6T6AMZAi1cohEZ32R17e').search({
       q: query,
       rating: 'g',
-      limit: 10
+      limit: 5
     }, (error, res) => { // removed function in liue to arrow function!!!!! in order it to keep in callback
       // console.log(error)
       console.log(res.data)
