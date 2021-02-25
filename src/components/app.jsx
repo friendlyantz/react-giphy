@@ -18,17 +18,33 @@ class App extends Component {
 
   search = (query) => {
     // apicall
-    giphy('nbZ987awZlAD6T6AMZAi1cohEZ32R17e').search({
-      q: query,
-      rating: 'g',
-      limit: 5
-    }, (error, res) => { // removed function in liue to arrow function!!!!! in order it to keep in callback
-      // console.log(error)
-      console.log(res.data)
-      this.setState({
-        gifs: res.data
+    const api_key = "nbZ987awZlAD6T6AMZAi1cohEZ32R17e"
+    // giphy('nbZ987awZlAD6T6AMZAi1cohEZ32R17e').
+    let url = `https://api.giphy.com/v1/gifs/search?api_key=${api_key}&limit=2&q=${query}`
+    console.log(url)
+    fetch(url)
+      .then(response => response.json())
+      .then(content => {
+        console.log(content.data)
+        this.setState({
+          gifs: content.data
+        })
       });
-    });
+
+    // ==============OLD API METHOD VIA HTTP _ DO NO USE!===========
+    // giphy('nbZ987awZlAD6T6AMZAi1cohEZ32R17e').search({
+    //   q: query,
+    //   rating: 'g',
+    //   limit: 5
+    // }, (error, res) => { // removed function in liue to arrow function!!!!! in order it to keep in callback
+    //   // console.log(error)
+    //   console.log(res.data)
+    //   this.setState({
+    //     gifs: res.data
+    //   });
+    // });
+    // ==================
+
   }
 
   render() {
